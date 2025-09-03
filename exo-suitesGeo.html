@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices sur les Suites Géométriques - Terminale Bac Pro MELEC</title>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+        }
+        h1 { font-size: 2em; text-align: center; }
+        h2 { font-size: 1.5em; }
+        .exercise { margin-bottom: 30px; }
+        .solution { display: none; background: #f9f9f9; padding: 15px; border-radius: 5px; border: 1px solid #ddd; }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background: #555; }
+        label { display: block; margin: 8px 0; }
+        input[type="radio"] { margin-right: 10px; }
+        .correction { display: none; color: #d32f2f; font-weight: bold; }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #eee;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .synthese { background: #f0f0f0; padding: 20px; border: 2px solid #333; border-radius: 10px; margin-bottom: 40px; }
+        .synthese h2 { text-align: center; color: #000; }
+        .synthese h3 { color: #555; }
+    </style>
+    <script>
+        function toggleSolution(id) {
+            const sol = document.getElementById(id);
+            sol.style.display = sol.style.display === 'block' ? 'none' : 'block';
+        }
+        function checkQuiz(quizId, correctAnswer, correctionId, explanation) {
+            const selected = document.querySelector(`input[name="${quizId}"]:checked`);
+            const correction = document.getElementById(correctionId);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    correction.innerHTML = "Bonne réponse !";
+                    correction.style.color = "green";
+                } else {
+                    correction.innerHTML = "Mauvaise réponse. " + explanation;
+                    correction.style.color = "#d32f2f";
+                }
+                correction.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercices sur les Suites Géométriques - Terminale Bac Pro MELEC</h1>
+        <p>Exercices pour les élèves de terminale Bac Pro MELEC, conformes au programme officiel. Commencez par les exercices d’automatismes pour maîtriser les calculs nécessaires (puissances, pourcentages, sommes), puis passez aux exercices sur les suites géométriques couvrant tous les points du programme : calcul de termes, représentation graphique, sens de variation, et somme des termes.</p>
+
+        <div class="exercise">
+            <h2>Automatismes : Calculs de Puissances</h2>
+            <p>Calculez les expressions suivantes :</p>
+            <ol>
+                <li>\(2^4\)</li>
+                <li>\(0.95^3\)</li>
+                <li>\(1.08^5\)</li>
+            </ol>
+            <button onclick="toggleSolution('sol_auto1')">Afficher/Masquer la Correction</button>
+            <div id="sol_auto1" class="solution">
+                <p>1) \(2^4 = 16\)</p>
+                <p>2) \(0.95^3 \approx 0.857\)</p>
+                <p>3) \(1.08^5 \approx 1.469\)</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Automatismes : Pourcentages</h2>
+            <p>Résolvez les problèmes suivants :</p>
+            <ol>
+                <li>Un câble coûte 150 € et augmente de 12 %. Quelle est sa nouvelle valeur ?</li>
+                <li>Une batterie perd 5 % de capacité. Si initiale 2000 mAh, quelle est la nouvelle ?</li>
+            </ol>
+            <button onclick="toggleSolution('sol_auto2')">Afficher/Masquer la Correction</button>
+            <div id="sol_auto2" class="solution">
+                <p>1) \(150 \times 1.12 = 168\) €</p>
+                <p>2) \(2000 \times 0.95 = 1900\) mAh</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Automatismes : Sommes Simples</h2>
+            <p>Calculez les sommes :</p>
+            <ol>
+                <li>\(1 + 2 + 4 + 8\)</li>
+                <li>\(10 + 5 + 2.5 + 1.25\)</li>
+            </ol>
+            <button onclick="toggleSolution('sol_auto3')">Afficher/Masquer la Correction</button>
+            <div id="sol_auto3" class="solution">
+                <p>1) 15</p>
+                <p>2) 18.75</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Quiz : Automatismes</h2>
+            <div>
+                <h3>Question 1 : Calculez \((1.04)^2\)</h3>
+                <label><input type="radio" name="q1" value="1.0816"> 1.0816</label>
+                <label><input type="radio" name="q1" value="1.08"> 1.08</label>
+                <button onclick="checkQuiz('q1', '1.0816', 'corr1', '\((1.04)^2 = 1.0816\).')">Vérifier</button>
+                <p id="corr1" class="correction"></p>
+            </div>
+            <div>
+                <h3>Question 2 : Une diminution de 15 % correspond à multiplier par ?</h3>
+                <label><input type="radio" name="q2" value="0.85"> 0.85</label>
+                <label><input type="radio" name="q2" value="0.15"> 0.15</label>
+                <button onclick="checkQuiz('q2', '0.85', 'corr2', 'Diminution de 15 % : \(1 - 0.15 = 0.85\).')">Vérifier</button>
+                <p id="corr2" class="correction"></p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 1 : Calcul de terme par récurrence (Dépréciation d'un équipement électrique)</h2>
+            <p>Une machine électrique coûte 8000 € et perd 10 % de sa valeur chaque année. La suite \((v_n)\) est définie par \(v_1 = 8000\) et \(v_{n+1} = v_n \times 0.9\).</p>
+            <ol>
+                <li>Calculer \(v_2\), \(v_3\), \(v_4\).</li>
+                <li>Calculer \(v_{10}\) en utilisant la récurrence successivement.</li>
+            </ol>
+            <button onclick="toggleSolution('sol1')">Afficher/Masquer la Correction</button>
+            <div id="sol_auto1" class="solution">
+                <p>1) \(v_2 = 7200\), \(v_3 = 6480\), \(v_4 = 5832\).</p>
+                <p>2) \(v_{10} \approx 3486.78\) (calculs itératifs).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 2 : Calcul de terme par formule explicite (Croissance de production)</h2>
+            <p>Production de panneaux solaires : \(u_n = 500 \times 1.15^{n-1}\).</p>
+            <ol>
+                <li>Calculer \(u_1\), \(u_5\), \(u_{10}\).</li>
+            </ol>
+            <button onclick="toggleSolution('sol2')">Afficher/Masquer la Correction</button>
+            <div id="sol2" class="solution">
+                <p>1) \(u_1 = 500\), \(u_5 \approx 864.79\), \(u_{10} \approx 2020.96\).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 3 : Représentation graphique (Refroidissement d'un composant)</h2>
+            <p>Suite \(t_n = 100 \times 0.98^{n-1}\) (température en °C).</p>
+            <ol>
+                <li>Calculer \(t_1\) à \(t_5\).</li>
+                <li>Tracer le nuage de points \((n, t_n)\) pour \(n=1\) à \(10\) (utiliser un tableur). Décrire la forme.</li>
+            </ol>
+            <button onclick="toggleSolution('sol3')">Afficher/Masquer la Correction</button>
+            <div id="sol3" class="solution">
+                <p>1) \(t_1=100\), \(t_2=98\), \(t_3=96.04\), \(t_4=94.12\), \(t_5=92.24\).</p>
+                <p>2) Forme décroissante, courbe exponentielle.</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 4 : Sens de variation (Augmentation de tension)</h2>
+            <p>Pour chaque suite, déterminer si elle est croissante, décroissante ou constante :</p>
+            <ol>
+                <li>\(u_1=200\), \(q=1.02\)</li>
+                <li>\(v_1=50\), \(q=0.95\)</li>
+                <li>\(w_1=100\), \(q=1\)</li>
+            </ol>
+            <button onclick="toggleSolution('sol4')">Afficher/Masquer la Correction</button>
+            <div id="sol4" class="solution">
+                <p>1) Croissante (q>1).</p>
+                <p>2) Décroissante (0<q<1).</p>
+                <p>3) Constante (q=1).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 5 : Somme des termes manuellement (Économies d'énergie)</h2>
+            <p>Suite \(s_n = 20 \times 2^{n-1}\) (économies en kWh).</p>
+            <ol>
+                <li>Calculer les 4 premiers termes.</li>
+                <li>Calculer la somme \(S_4\) manuellement.</li>
+            </ol>
+            <button onclick="toggleSolution('sol5')">Afficher/Masquer la Correction</button>
+            <div id="sol5" class="solution">
+                <p>1) 20, 40, 80, 160.</p>
+                <p>2) \(S_4 = 20 + 40 + 80 + 160 = 300\).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 6 : Calculs de termes et somme</h2>
+            <p>Soit \((u_n)\) une suite géométrique telle que \(u_0 = 7\) et sa raison est \(q = 3\).</p>
+            <ol>
+                <li>Calculer les 3 premiers termes qui suivent \(u_0\).</li>
+                <li>Calculer \(u_9\).</li>
+                <li>Calculer la somme \(S = u_0 + u_1 + u_2 + \dots + u_9\).</li>
+            </ol>
+            <button onclick="toggleSolution('sol6')">Afficher/Masquer la Correction</button>
+            <div id="sol6" class="solution">
+                <p>1) \(u_1 = 7 \times 3 = 21\), \(u_2 = 21 \times 3 = 63\), \(u_3 = 63 \times 3 = 189\).</p>
+                <p>2) \(u_n = 7 \times 3^n\), \(u_9 = 7 \times 3^9 = 7 \times 19683 = 137781\).</p>
+                <p>3) \(S_{10} = 7 \frac{1 - 3^{10}}{1 - 3} = 7 \frac{1 - 59049}{-2} = 7 \times 29524 = 206668\).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 7 : Déterminer un terme intermédiaire</h2>
+            <p>Déterminer le nombre \(a\) tel que les 3 nombres suivants : \(7, a, 8\) soient les termes consécutifs d'une suite géométrique.</p>
+            <button onclick="toggleSolution('sol7')">Afficher/Masquer la Correction</button>
+            <div id="sol7" class="solution">
+                <p>Pour \(u_n, u_{n+1}, u_{n+2}\), la raison \(q\) vérifie \(u_{n+1}/u_n = u_{n+2}/u_{n+1}\). Donc \(a/7 = 8/a\). Ainsi, \(a^2 = 7 \times 8 = 56\), \(a = \sqrt{56} = 2\sqrt{14}\).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 8 : Somme avec termes alternés</h2>
+            <p>Calculer la valeur exacte de la somme : \(S = 1 - 2 + 4 - 8 + 16 - 32 + \dots + 4096\).</p>
+            <button onclick="toggleSolution('sol8')">Afficher/Masquer la Correction</button>
+            <div id="sol8" class="solution">
+                <p>Les termes sont \(u_n = (-2)^n\), de \(n=0\) à \(n=12\) (car \((-2)^{12} = 4096\)). Somme : \(S_{13} = 1 \frac{1 - (-2)^{13}}{1 - (-2)} = \frac{1 - (-8192)}{3} = \frac{8193}{3} = 2731\).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 9 : Calcul de termes spécifiques</h2>
+            <p>Calculer le 10ème terme et le 35ème terme de la suite géométrique de premier terme \(u_1 = 0.9\) et de raison \(r = 2\).</p>
+            <button onclick="toggleSolution('sol9')">Afficher/Masquer la Correction</button>
+            <div id="sol9" class="solution">
+                <p>\(u_n = 0.9 \times 2^{n-1}\). \(u_{10} = 0.9 \times 2^9 = 0.9 \times 512 = 460.8\). \(u_{35} = 0.9 \times 2^{34} \approx 0.9 \times 17179869184 \approx 15461882265.6\).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 10 : Calcul de la raison</h2>
+            <p>Calculer la raison positive d'une suite géométrique dont \(u_3 = 3\) et \(u_5 = 12\).</p>
+            <button onclick="toggleSolution('sol10')">Afficher/Masquer la Correction</button>
+            <div id="sol10" class="solution">
+                <p>\(u_n = u_1 \times q^{n-1}\). Donc \(u_3 = u_1 q^2 = 3\), \(u_5 = u_1 q^4 = 12\). Diviser : \(\frac{u_5}{u_3} = q^2 = \frac{12}{3} = 4\), \(q = 2\).</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 11 : Comparaison de baux</h2>
+            <p>Un étudiant loue une chambre pour 3 ans. Contrat 1 : loyer de 200 € le premier mois, +5 € par mois. Contrat 2 : loyer de 200 € le premier mois, +2 % par mois.</p>
+            <ol>
+                <li>Calculer le loyer du 2ème et 3ème mois pour chaque contrat.</li>
+                <li>Calculer le loyer du 36ème mois pour chaque contrat.</li>
+                <li>Quel contrat est le plus avantageux sur 3 ans ?</li>
+            </ol>
+            <button onclick="toggleSolution('sol11')">Afficher/Masquer la Correction</button>
+            <div id="sol11" class="solution">
+                <p>1) Contrat 1 (arithmétique) : \(u_2 = 205\), \(u_3 = 210\). Contrat 2 (géométrique) : \(v_2 = 200 \times 1.02 = 204\), \(v_3 = 204 \times 1.02 \approx 208.08\).</p>
+                <p>2) Contrat 1 : \(u_{36} = 200 + (36-1) \times 5 = 375\). Contrat 2 : \(v_{36} = 200 \times 1.02^{35} \approx 423.36\).</p>
+                <p>3) Somme Contrat 1 : \(S_{36} = \frac{36}{2} \times (200 + 375) = 10350\). Contrat 2 : \(S_{36} = 200 \frac{1 - 1.02^{36}}{1 - 1.02} \approx 10379.61\). Contrat 1 plus avantageux.</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 12 : Croissance de la population mondiale</h2>
+            <p>Population augmente de 1 % par an, 6.9 milliards en 2010. Noter \(u_n\) la population en 2010+n.</p>
+            <ol>
+                <li>Expliquer pourquoi \(u_n\) est géométrique, donner \(u_1\) et \(q\).</li>
+                <li>Exprimer \(u_n\) en fonction de \(n\).</li>
+                <li>Estimer la population en 2025.</li>
+                <li>Estimer quand 9 milliards seront atteints.</li>
+            </ol>
+            <button onclick="toggleSolution('sol12')">Afficher/Masquer la Correction</button>
+            <div id="sol12" class="solution">
+                <p>1) Géométrique car augmentation constante de 1 %, \(u_1 = 6.9\), \(q = 1.01\).</p>
+                <p>2) \(u_n = 6.9 \times 1.01^{n-1}\) (milliards).</p>
+                <p>3) 2025 : \(n=16\), \(u_{16} \approx 7.91\) milliards.</p>
+                <p>4) Résoudre \(6.9 \times 1.01^{n-1} \geq 9\), \(n-1 \geq \ln(9/6.9)/\ln(1.01) \approx 27\), soit 2037.</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Exercice 13 : Calcul de sommes</h2>
+            <p>Calculer les sommes suivantes :</p>
+            <ol>
+                <li>\(S_1 = 1 + 3 + 9 + 27 + 81 + \dots + 59049\)</li>
+                <li>\(S_2 = 1 + 3 + 5 + 7 + 9 + \dots + 999\)</li>
+            </ol>
+            <button onclick="toggleSolution('sol13')">Afficher/Masquer la Correction</button>
+            <div id="sol13" class="solution">
+                <p>1) Géométrique, \(u_n = 3^{n-1}\), \(u_{10} = 3^9 = 59049\), \(S_1 = \frac{1 - 3^{10}}{1 - 3} = \frac{59049 - 1}{2} = 29524\).</p>
+                <p>2) Arithmétique, \(d=2\), \(u_1=1\), \(u_n=999\), \(n=\frac{999-1}{2}+1=500\), \(S_2 = \frac{500}{2} \times (1 + 999) = 250000\).</p>
+            </div>
+        </div>
+
+        <div class="synthese">
+            <h2>Exercice Synthèse : Validation des Compétences du Programme Officiel</h2>
+            <p>Problème : Dans le cadre d'une installation électrique MELEC, une batterie lithium-ion coûte initialement 5000 € et perd 6 % de sa valeur chaque année en raison de l'usure. Vous devez analyser l'évolution de sa valeur sur 10 ans pour décider si un remplacement est nécessaire lorsque la valeur tombe en dessous de 2000 €. Procédez par étapes en validant les compétences : S'approprier, Analyser/Raisonner, Réaliser, Valider, Communiquer.</p>
+            
+            <h3>S'approprier</h3>
+            <p>Recherchez et extrayez les informations clés du problème. Formulez une hypothèse sur le type de suite modélisant la dépréciation (géométrique avec \(q\) positive). Identifiez le premier terme \(u_1 = 5000 \, €\) et la raison \(q = 0.94\).</p>
+
+            <h3>Analyser/Raisonner</h3>
+            <p>Choisissez un modèle (suite géométrique). Élaborer un protocole : calculer le terme général \(u_n = 5000 \times 0.94^{n-1}\). Déterminez le sens de variation (décroissante car \(q < 1\)).</p>
+
+            <h3>Réaliser</h3>
+            <p>Utilisez un tableur pour générer les termes de \(n=1\) à \(10\). Tracez le graphique (nuage de points). Calculez la somme des valeurs sur 10 ans avec la formule \(S_{10} = 5000 \times \frac{1 - 0.94^{10}}{1 - 0.94}\). Effectuez une simulation pour trouver quand \(u_n < 2000\).</p>
+
+            <h3>Valider</h3>
+            <p>Contrôlez les résultats (vérifiez calculs manuels pour premiers termes). Critiquez le modèle (est-ce réaliste ?). Validez l'hypothèse et proposez une conclusion sur le remplacement (autour de l'année 12).</p>
+
+            <h3>Communiquer</h3>
+            <p>Rédigez un rapport expliquant les étapes, incluant le graphique et la somme totale. Présentez oralement les résultats et recommandations.</p>
+
+            <button onclick="toggleSolution('sol_synthese')">Afficher/Masquer la Correction</button>
+            <div id="sol_synthese" class="solution">
+                <p>S'approprier : Hypothèse confirmée, modèle de dépréciation géométrique.</p>
+                <p>Analyser/Raisonner : \(u_n = 5000 \times 0.94^{n-1}\), décroissante.</p>
+                <p>Réaliser : Ex. \(u_2 \approx 4700\), \(S_{10} \approx 36916.74 \, €\). Graphique exponentiel décroissant. \(u_n < 2000\) pour \(n \approx 15\).</p>
+                <p>Valider : Calculs corrects, modèle simplifié mais utile.</p>
+                <p>Communiquer : Rapport avec tableaux, graphiques et conclusion : remplacement recommandé après 10 ans si valeur < seuil.</p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h2>Quiz : Suites Géométriques</h2>
+            <div>
+                <h3>Question 1 : Pour \(u_n = 4 \times 0.5^{n-1}\), sens de variation ?</h3>
+                <label><input type="radio" name="q3" value="Décroissante"> Décroissante</label>
+                <label><input type="radio" name="q3" value="Croissante"> Croissante</label>
+                <button onclick="checkQuiz('q3', 'Décroissante', 'corr3', 'q=0.5 < 1.')">Vérifier</button>
+                <p id="corr3" class="correction"></p>
+            </div>
+            <div>
+                <h3>Question 2 : Formule somme pour \(q \neq 1\) ?</h3>
+                <label><input type="radio" name="q4" value="S_n = u_1 (1-q^n)/(1-q)"> \(S_n = u_1 \frac{1 - q^n}{1 - q}\)</label>
+                <label><input type="radio" name="q4" value="S_n = n u_1"> \(S_n = n u_1\)</label>
+                <button onclick="checkQuiz('q4', 'S_n = u_1 (1-q^n)/(1-q)', 'corr4', 'Formule standard.')">Vérifier</button>
+                <p id="corr4" class="correction"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Conforme au programme officiel de mathématiques pour le Bac Pro MELEC. Utilisez une calculatrice ou tableur pour les calculs précis. </p>
+        </footer>
+    </div>
+</body>
+</html>
